@@ -1,8 +1,12 @@
+import { data1 } from "../data";
+
 const header = {
     print() {
         return /* html */ `
         <div class="bg-slate-900 py-4">
-            <img src="../../img/fpt1.png" alt="" class="mx-auto">
+        ${data1.map((post) => `
+        <img src="${post.img}" alt="" class="mx-auto">
+        `)}
         </div>
         <div class="header-bottom bg-orange-600 px-3 flex justify-between">
             <nav class="">

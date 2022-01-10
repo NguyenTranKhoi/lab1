@@ -1,4 +1,4 @@
-const data = [
+export const data = [
     {
         id: 1,
         img: "../img/anh.jpg",
@@ -19,4 +19,8 @@ const data = [
     },
 ];
 
-export default data;
+export const data1 = [
+    {
+        img: "../img/fpt1.png",
+    },
+];
