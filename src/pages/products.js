@@ -1,0 +1,8 @@
+const ProductPage = {
+    print() {
+        return /* html */ `
+        <h1>Products Page</h1>
+        `;
+    },
+};
+export default ProductPage;
