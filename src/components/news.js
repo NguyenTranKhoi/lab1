@@ -8,7 +8,7 @@ const newList = {
         ${data.map((post) => `
         <div class="border-solid border border-slate-400 p-6">
         <img src="${post.img}" alt="">
-        <h3 class="pt-2"><a href="" class="text-base text-orange-700 font-bold">${post.title}</a></h3>
+        <h3 class="pt-2"><a href="/product/${post.id}" class="text-base text-orange-700 font-bold">${post.title}</a></h3>
         <p class="pt-2 text-sm">${post.desc}</p>
         </div>
         `).join("")}
@@ -18,7 +18,7 @@ const newList = {
         ${data.map((post) => `
         <div class="border-solid border border-slate-400 p-6">
         <img src="${post.img}" alt="">
-        <h3 class="pt-2"><a href="" class="text-base text-orange-700 font-bold">${post.title}</a></h3>
+        <h3 class="pt-2"><a href="/product/${post.id}" class="text-base text-orange-700 font-bold">${post.title}</a></h3>
         <p class="pt-2 text-sm">${post.desc}</p>
         </div>
         `).join("")}
