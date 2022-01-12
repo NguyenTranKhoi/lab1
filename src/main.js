@@ -8,6 +8,7 @@ import DetailPage from "./pages/detail";
 import HomePage from "./pages/homepage";
 import ProductPage from "./pages/products";
 import signin from "./pages/signin";
+import signup from "./pages/signup";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -40,6 +41,9 @@ router.on({
     },
     "/signin": () => {
         render(signin.print());
+    },
+    "/signup": () => {
+        render(signup.print());
     },
 });
 
