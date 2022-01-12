@@ -7,6 +7,7 @@ import AdminProductEdit from "./pages/admin/productEdit";
 import DetailPage from "./pages/detail";
 import HomePage from "./pages/homepage";
 import ProductPage from "./pages/products";
+import signin from "./pages/signin";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -36,6 +37,9 @@ router.on({
     "/admin/product/:id/edit": ({ data }) => {
         const { id } = data;
         render(AdminProductEdit.print(+id));
+    },
+    "/signin": () => {
+        render(signin.print());
     },
 });
 
