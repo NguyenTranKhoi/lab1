@@ -9,6 +9,7 @@ const DetailPage = {
         <h3 class="pt-2"><a href="" class="text-lg text-orange-700 font-bold">${result.title}</a></h3>
         <p class="pt-2 text-sm">${result.desc}</p>
         <a href="/admin/product/${result.id}/edit" class="bg-slate-900 text-white border-solid border border-white">Sửa</a>
+        <a href="/admin/product/add" class="bg-slate-900 text-white border-solid border border-white">Thêm</a>
         </div>
         `;
     },

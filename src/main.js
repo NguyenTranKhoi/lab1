@@ -2,7 +2,9 @@ import Navigo from "navigo";
 import footer from "./components/footer";
 import header from "./components/header";
 import About from "./pages/about";
+import adminDashboard from "./pages/admin/dashboard";
 import AdminProductPage from "./pages/admin/product";
+import AdminProductAdd from "./pages/admin/productAdd";
 import AdminProductEdit from "./pages/admin/productEdit";
 import DetailPage from "./pages/detail";
 import HomePage from "./pages/homepage";
@@ -44,6 +46,12 @@ router.on({
     },
     "/signup": () => {
         render(signup.print());
+    },
+    "/admin/product/add": () => {
+        render(AdminProductAdd.print());
+    },
+    "/admin/dashboard": () => {
+        render(adminDashboard.print());
     },
 });
 

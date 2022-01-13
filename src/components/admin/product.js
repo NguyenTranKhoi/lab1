@@ -1,4 +1,4 @@
-const AdminProduct = {
+const AdminProductTable = {
     print() {
         return /* html */ `
         <div class="flex flex-col">
@@ -70,4 +70,4 @@ const AdminProduct = {
     },
 };
 
-export default AdminProduct;
+export default AdminProductTable;
