@@ -4,6 +4,7 @@ import header from "./components/header";
 import About from "./pages/about";
 import adminDashboard from "./pages/admin/dashboard";
 import AdminAdd from "./pages/admin/news/adminAdd";
+import proAdmin from "./pages/admin/news/projake";
 import AdminProductPage from "./pages/admin/product";
 import AdminProductEdit from "./pages/admin/productEdit";
 import DetailPage from "./pages/detail";
@@ -55,6 +56,9 @@ router.on({
     },
     "/admin/news/add": () => {
         render(AdminAdd.print());
+    },
+    "/admin/table": () => {
+        render(proAdmin.print());
     },
 });
 

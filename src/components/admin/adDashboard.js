@@ -27,9 +27,9 @@ const adDashboard = {
                     >Thêm mới</a
                   >
                   <a
-                    href="#"
+                    href="/admin/table"
                     class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >Projects</a
+                    >Bảng</a
                   >
                   <a
                     href="#"
