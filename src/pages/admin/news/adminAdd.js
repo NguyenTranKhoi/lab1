@@ -1,3 +1,4 @@
+import { add } from "../../../api/posts";
 import adDashboard from "../../../components/admin/adDashboard";
 
 const AdminAdd = {
@@ -33,15 +34,31 @@ const AdminAdd = {
             <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                 <!-- Replace with your content -->
                 <div class="px-4 py-6 sm:px-0">
-                <div
-                    class="border-4 border-dashed border-gray-200 rounded-lg h-96"
-                ></div>
+                <form id="form-add-post">
+                    <input type="text" class="border border-black" id="title-post" placeholder="Title"/><br />
+                    <input type="text" class="border border-black" id="img-post" placeholder="Img" /><br />
+                    <textarea name="" cols="30" rows="10" class="border border-black" id="desc-post" placeholder="Description"></textarea><br />
+                    <button>Thêm</button>
+                </form>
+                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
                 </div>
                 <!-- /End replace -->
             </div>
         </main>
         </div>
         `;
+    },
+    afterRender() {
+        // console.log(document.querySelector('#form-add-post'));
+        const formAdd = document.querySelector("#form-add-post");
+        formAdd.addEventListener("submit", (e) => {
+            e.preventDefault();
+            add({
+                title: document.querySelector("#title-post").value,
+                img: document.querySelector("#img-post").value,
+                desc: document.querySelector("#desc-post").value,
+            });
+        });
     },
 };
 

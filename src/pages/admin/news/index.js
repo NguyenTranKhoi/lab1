@@ -1,4 +1,6 @@
+import { remove } from "../../../api/posts";
 import adDashboard from "../../../components/admin/adDashboard";
+import { data } from "../../../data";
 
 const AdminNews = {
     print() {
@@ -33,15 +35,54 @@ const AdminNews = {
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <!-- Replace with your content -->
             <div class="px-4 py-6 sm:px-0">
-            <div
-                class="border-4 border-dashed border-gray-200 rounded-lg h-96"
-            ></div>
+                <table>
+                    <thead>
+                        <tr>
+                         <th>STT</th>
+                         <th>Tiêu đề</th>
+                         <th>Ảnh</th>
+                         <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    ${data.map((post, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${post.title}</td>
+                            <td><img src="${post.img}" width="50"/></td>
+                            <td>
+                                <a href="">Edit</a>
+                                <button data-id="${post.id}" class="btn btn-remove">Xoá</button>
+                            </td>
+                        </tr>
+                    `).join("")}
+                    </tbody>
+                </table>
+            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
             </div>
             <!-- /End replace -->
         </div>
         </main>
     </div>
         `;
+    },
+    afterRender() {
+        // lấy danh sách buttun sau khi render
+        const buttons = document.querySelectorAll(".btn");
+        // tạo vòng lặp cho nodelist button
+        buttons.forEach((btn) => {
+            // lấy id từ thuộc tính data-id của button
+            const { id } = btn.dataset;
+            btn.addEventListener("click", () => {
+                const confirm = window.confirm("Bạn có muốn xoá không");
+                if (confirm) {
+                    // gọi hàm delete trong folder API và bắn id vào hàm
+                    remove(id).then(() => {
+                        console.log("Đã xoá thành công");
+                    });
+                }
+            });
+        });
     },
 };
 

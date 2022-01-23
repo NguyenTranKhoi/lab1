@@ -1,7 +1,8 @@
-import { data } from "../data";
+import { getAll } from "../api/posts";
 
 const newList = {
-    print() {
+    async print() {
+        const { data } = await getAll();
         return /* html */ `
         <h2 class="uppercase font-bold text-xl my-5 text-slate-900">Tin tức học tập</h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -13,6 +14,7 @@ const newList = {
         </div>
         `).join("")}
         </div>
+
         <h2 class="uppercase font-bold text-xl my-5 text-slate-900">Hoạt động sinh viên</h2>
         <div class="grid md:grid-cols-3 gap-8">
         ${data.map((post) => `

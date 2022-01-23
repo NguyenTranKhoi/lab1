@@ -1,6 +1,4 @@
 import Navigo from "navigo";
-import footer from "./components/footer";
-import header from "./components/header";
 import About from "./pages/about";
 import adminDashboard from "./pages/admin/dashboard";
 import AdminAdd from "./pages/admin/news/adminAdd";
@@ -15,50 +13,49 @@ import signup from "./pages/signup";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
-const render = (content) => {
-    document.querySelector("#header").innerHTML = header.print();
-    document.querySelector("#app").innerHTML = content;
-    document.querySelector("#footer").innerHTML = footer.print();
+const render = async (content) => {
+    document.querySelector("#app").innerHTML = await content.print();
+    if (content.afterRender) content.afterRender();
 };
 
 router.on({
     "/": () => {
-        render(HomePage.print());
+        render(HomePage);
     },
     "/about": () => {
-        render(About.print());
+        render(About);
     },
     "/product": () => {
-        render(ProductPage.print());
+        render(ProductPage);
     },
     "/product/:id": ({ data }) => {
         const { id } = data;
         render(DetailPage.print(+id));
     },
     "/admin/product": () => {
-        render(AdminProductPage.print());
+        render(AdminProductPage);
     },
     "/admin/product/:id/edit": ({ data }) => {
         const { id } = data;
         render(AdminProductEdit.print(+id));
     },
     "/signin": () => {
-        render(signin.print());
+        render(signin);
     },
     "/signup": () => {
-        render(signup.print());
+        render(signup);
     },
     // "/admin/product/add": () => {
     //     render(AdminProductAdd.print());
     // },
     "/admin/dashboard": () => {
-        render(adminDashboard.print());
+        render(adminDashboard);
     },
     "/admin/news/add": () => {
-        render(AdminAdd.print());
+        render(AdminAdd);
     },
     "/admin/table": () => {
-        render(proAdmin.print());
+        render(proAdmin);
     },
 });
 
