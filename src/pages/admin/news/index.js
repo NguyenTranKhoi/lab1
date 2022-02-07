@@ -1,9 +1,9 @@
-import { remove } from "../../../api/posts";
+import { remove, getAll } from "../../../api/posts";
 import adDashboard from "../../../components/admin/adDashboard";
-import { data } from "../../../data";
 
 const AdminNews = {
-    print() {
+    async print() {
+        const { data } = await getAll();
         return /* html */ `
         <div class="min-h-full">
         ${adDashboard.print()}

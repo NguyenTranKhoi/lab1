@@ -36,7 +36,7 @@ const AdminAdd = {
                 <div class="px-4 py-6 sm:px-0">
                 <form id="form-add-post">
                     <input type="text" class="border border-black" id="title-post" placeholder="Title"/><br />
-                    <input type="text" class="border border-black" id="img-post" placeholder="Img" /><br />
+                    <input type="file" class="border border-black" id="img-post" placeholder="Img" /><br />
                     <textarea name="" cols="30" rows="10" class="border border-black" id="desc-post" placeholder="Description"></textarea><br />
                     <button>Thêm</button>
                 </form>

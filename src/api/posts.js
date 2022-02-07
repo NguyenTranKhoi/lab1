@@ -16,3 +16,7 @@ export const remove = (id) => {
     const url = `/posts/${id}`;
     return intance.delete(url);
 };
+export const update = (post) => {
+    const url = `/posts/${post.id}`;
+    return intance.put(url, post);
+};
