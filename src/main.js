@@ -1,6 +1,5 @@
 import Navigo from "navigo";
 import About from "./pages/about";
-import adminDashboard from "./pages/admin/dashboard";
 import AdminAdd from "./pages/admin/news/adminAdd";
 import adminEditPost from "./pages/admin/news/adminEdit";
 import proAdmin from "./pages/admin/news/projake";
@@ -50,9 +49,9 @@ router.on({
     // "/admin/product/add": () => {
     //     render(AdminProductAdd.print());
     // },
-    "/admin/dashboard": () => {
-        render(adminDashboard);
-    },
+    // "/admin/dashboard": () => {
+    //     render(adminDashboard);
+    // },
     "/admin/news/add": () => {
         render(AdminAdd);
     },
