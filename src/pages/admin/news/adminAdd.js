@@ -1,3 +1,4 @@
+import axios from "axios";
 import { add } from "../../../api/posts";
 import adDashboard from "../../../components/admin/adDashboard";
 
@@ -36,7 +37,10 @@ const AdminAdd = {
                 <div class="px-4 py-6 sm:px-0">
                 <form id="form-add-post">
                     <input type="text" class="border border-black" id="title-post" placeholder="Title"/><br />
-                    <input type="file" class="border border-black" id="img-post" placeholder="Img" /><br />
+                    <div class="w-3xl grid grid-cols-2 gap-8">
+                    <div><input type="file" class="border border-black" id="img-post" /></div>
+                    <div><img width="200" src="https://thumbs.dreamstime.com/b/no-thumbnail-image-placeholder-forums-blogs-websites-148010362.jpg" id="img-preview"/></div>
+                    </div>
                     <textarea name="" cols="30" rows="10" class="border border-black" id="desc-post" placeholder="Description"></textarea><br />
                     <button>Thêm</button>
                 </form>
@@ -51,13 +55,37 @@ const AdminAdd = {
     afterRender() {
         // console.log(document.querySelector('#form-add-post'));
         const formAdd = document.querySelector("#form-add-post");
-        formAdd.addEventListener("submit", (e) => {
-            e.preventDefault();
-            add({
-                title: document.querySelector("#title-post").value,
-                img: document.querySelector("#img-post").value,
-                desc: document.querySelector("#desc-post").value,
-            });
+        const imgPreview = document.querySelector("#img-preview");
+        const imgPost = document.querySelector("#img-post");
+
+        imgPost.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            console.log(file);
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", "zmppimam");
+            axios({
+                url: "https://api.cloudinary.com/v1_1/dqd4urvf6/image/upload",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-endcoded",
+                },
+                data: formData,
+            })
+                .then((res) => {
+                    console.log(res.data.secure_url);
+                    imgPreview.src = res.data.secure_url;
+                    // eslint-disable-next-line no-shadow
+                    formAdd.addEventListener("submit", (e) => {
+                        e.preventDefault();
+                        add({
+                            title: document.querySelector("#title-post").value,
+                            img: res.data.secure_url,
+                            desc: document.querySelector("#desc-post").value,
+                        });
+                    });
+                })
+                .catch((error) => console.log(error));
         });
     },
 };
