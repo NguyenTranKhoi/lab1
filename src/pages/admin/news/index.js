@@ -51,7 +51,7 @@ const AdminNews = {
                             <td>${post.title}</td>
                             <td><img src="${post.img}" width="50"/></td>
                             <td>
-                                <a href="">Edit</a>
+                                <a href="/admin/news/${post.id}/edit">Edit</a>
                                 <button data-id="${post.id}" class="btn btn-remove">Xoá</button>
                             </td>
                         </tr>
