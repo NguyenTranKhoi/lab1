@@ -8,9 +8,9 @@ import AdminProductEdit from "./pages/admin/productEdit";
 import DetailPage from "./pages/detail";
 import HomePage from "./pages/homepage";
 import ProductPage from "./pages/products";
-import signin from "./pages/signin";
-import signup from "./pages/signup";
+import Signin from "./pages/signin";
 import AdminNews from "./pages/admin/news/index";
+import Signup from "./pages/signup";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -41,10 +41,10 @@ router.on({
         render(AdminProductEdit, id);
     },
     "/signin": () => {
-        render(signin);
+        render(Signin);
     },
     "/signup": () => {
-        render(signup);
+        render(Signup);
     },
     // "/admin/product/add": () => {
     //     render(AdminProductAdd.print());

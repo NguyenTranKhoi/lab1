@@ -35,22 +35,22 @@ const AdminNews = {
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <!-- Replace with your content -->
             <div class="px-4 py-6 sm:px-0">
-                <table>
-                    <thead>
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
                         <tr>
-                         <th>STT</th>
-                         <th>Tiêu đề</th>
-                         <th>Ảnh</th>
-                         <th></th>
+                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">STT</th>
+                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tiêu đề</th>
+                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ảnh</th>
+                         <th scope="col" class="relative px-6 py-3"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-white divide-y divide-gray-200">
                     ${data.map((post, index) => `
                         <tr>
-                            <td>${index + 1}</td>
-                            <td>${post.title}</td>
-                            <td><img src="${post.img}" width="50"/></td>
-                            <td>
+                            <td class="px-6 py-4 whitespace-nowrap">${index + 1}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">${post.title}</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><img src="${post.img}" width="50"/></td>
+                            <td class="px-6 py-4 whitespace-nowrap">
                                 <a href="/admin/news/${post.id}/edit">Edit</a>
                                 <button data-id="${post.id}" class="btn btn-remove">Xoá</button>
                             </td>

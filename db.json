@@ -90,20 +90,6 @@
       "id": "25"
     },
     {
-      "0": {
-        "createdAt": "2022-01-10T20:33:27.477Z",
-        "title": "Bài viết mới frreewrertr",
-        "img": "http://placeimg.com/640/480/sports",
-        "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "id": "2"
-      },
-      "createdAt": "2022-01-18T12:48:44.521Z",
-      "title": "Martha Bauch",
-      "img": "http://placeimg.com/640/480/people",
-      "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-      "id": "27"
-    },
-    {
       "createdAt": "2022-01-19T01:45:11.910Z",
       "title": "Trần Văn Kiên",
       "img": "https://picsum.photos/1500/400",
@@ -138,10 +124,10 @@
       "id": "AfA3eHS"
     },
     {
-      "title": "hello",
+      "id": "Bhf5ILn",
+      "title": "hello kitty",
       "img": "https://res.cloudinary.com/dqd4urvf6/image/upload/v1644239605/asm/rfabeyztnjqcttn2e7l6.jpg",
-      "desc": "hi",
-      "id": "Bhf5ILn"
+      "desc": "hi"
     },
     {
       "id": "JdddyZu",
@@ -154,6 +140,34 @@
       "img": "https://res.cloudinary.com/dqd4urvf6/image/upload/v1644287136/asm/qespcqvouehhzhedmk8w.jpg",
       "desc": "hí",
       "id": "TY0TdGj"
+    },
+    {
+      "id": "-AcavaN",
+      "title": "Nguyễn Trần Khôi đã sửa",
+      "img": "https://res.cloudinary.com/dqd4urvf6/image/upload/v1644372143/asm/braxawkd86uratk3pm0j.jpg",
+      "desc": "cúc tịnh y"
+    },
+    {
+      "title": "bai viet moi",
+      "img": "http://res.cloudinary.com/dqd4urvf6/image/upload/v1644385717/asm/s6lqv6b718et4jjqgeng.jpg",
+      "desc": "bai viet moi update",
+      "id": "8fkjV7X"
+    }
+  ],
+  "users": [
+    {
+      "email": "khoi@gmail.com",
+      "password": "$2a$10$IcX11EejbcGjw6habzayUOrxz7fTIFXXBBcfsp1yRlp5HD4gBV4/2",
+      "username": "Khôi",
+      "RepeatPassword": "1234567",
+      "id": 1
+    },
+    {
+      "email": "khanh@gmail.com",
+      "password": "$2a$10$aOYR.2cURKmKVrk5eAT5WeM8.nVPHk5Yq2jnytdEux0LBWI2d1Qhy",
+      "username": "Khanh",
+      "RepeatPassword": "12345",
+      "id": 2
     }
   ]
 }

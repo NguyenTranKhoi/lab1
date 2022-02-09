@@ -55,38 +55,60 @@ const AdminAdd = {
     afterRender() {
         // console.log(document.querySelector('#form-add-post'));
         const formAdd = document.querySelector("#form-add-post");
-        const imgPreview = document.querySelector("#img-preview");
         const imgPost = document.querySelector("#img-post");
+        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dqd4urvf6/image/upload";
+        const CLOUDINARY_PRESET = "zmppimam";
 
-        imgPost.addEventListener("change", (e) => {
-            const file = e.target.files[0];
-            console.log(file);
+        formAdd.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const file = imgPost.files[0];
             const formData = new FormData();
             formData.append("file", file);
-            formData.append("upload_preset", "zmppimam");
-            axios({
-                url: "https://api.cloudinary.com/v1_1/dqd4urvf6/image/upload",
-                method: "POST",
+            formData.append("upload_preset", CLOUDINARY_PRESET);
+
+            // call api cloudinary
+            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
                 headers: {
                     "Content-Type": "application/x-www-form-endcoded",
                 },
-                data: formData,
-            })
-                .then((res) => {
-                    console.log(res.data.secure_url);
-                    imgPreview.src = res.data.secure_url;
-                    // eslint-disable-next-line no-shadow
-                    formAdd.addEventListener("submit", (e) => {
-                        e.preventDefault();
-                        add({
-                            title: document.querySelector("#title-post").value,
-                            img: res.data.secure_url,
-                            desc: document.querySelector("#desc-post").value,
-                        });
-                    });
-                })
-                .catch((error) => console.log(error));
+            });
+            // call api thêm bài viết
+            add({
+                title: document.querySelector("#title-post").value,
+                img: data.url,
+                desc: document.querySelector("#desc-post").value,
+            });
         });
+
+        // imgPost.addEventListener("change", (e) => {
+        //     const file = e.target.files[0];
+        //     console.log(file);
+        //     const formData = new FormData();
+        //     formData.append("file", file);
+        //     formData.append("upload_preset", "zmppimam");
+        //     axios({
+        //         url: "https://api.cloudinary.com/v1_1/dqd4urvf6/image/upload",
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/x-www-form-endcoded",
+        //         },
+        //         data: formData,
+        //     })
+        //         .then((res) => {
+        //             console.log(res.data.secure_url);
+        //             imgPreview.src = res.data.secure_url;
+        //             // eslint-disable-next-line no-shadow
+        //             formAdd.addEventListener("submit", (e) => {
+        //                 e.preventDefault();
+        //                 add({
+        //                     title: document.querySelector("#title-post").value,
+        //                     img: res.data.secure_url,
+        //                     desc: document.querySelector("#desc-post").value,
+        //                 });
+        //             });
+        //         })
+        //         .catch((error) => console.log(error));
+        // });
     },
 };
 

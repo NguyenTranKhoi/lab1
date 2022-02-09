@@ -1,7 +1,8 @@
+import { signin } from "../api/user";
 import header from "../components/header";
 import signinList from "../components/signinList";
 
-const signin = {
+const Signin = {
     print() {
         return /* html */`
         <header>
@@ -12,6 +13,16 @@ const signin = {
         </div>
         `;
     },
+    afterRender() {
+        const formSignin = document.querySelector("#formSignin");
+        formSignin.addEventListener("submit", (e) => {
+            e.preventDefault();
+            signin({
+                email: document.querySelector("#email").value,
+                password: document.querySelector("#password").value,
+            });
+        });
+    },
 };
 
-export default signin;
+export default Signin;
