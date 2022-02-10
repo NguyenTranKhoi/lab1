@@ -168,6 +168,20 @@
       "username": "Khanh",
       "RepeatPassword": "12345",
       "id": 2
+    },
+    {
+      "email": "cuc2@gmail.com",
+      "password": "$2a$10$MMOD1hLlr06q7gBXW2qug.0n5v19sL.taLJeLUS49NpD5tWfoHh0e",
+      "username": "cuc tinh y",
+      "RepeatPassword": "123456",
+      "id": 3
+    },
+    {
+      "email": "tinh2@gmail.com",
+      "password": "$2a$10$IAzZgJmNrLBXFDkh83PsXecdUakEabR7uDkJEV4ceWw.DGB.lqNdi",
+      "username": "cuc tinh y",
+      "RepeatPassword": "111111111",
+      "id": 4
     }
   ]
 }
