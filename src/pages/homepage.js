@@ -8,7 +8,9 @@ const HomePage = {
         return /* html */ `
         <div class=""container max-w-5xl mx-auto>
             <header>
-                ${header.print()}
+                <div id="header">
+                     ${header.print()}
+                </div>
             </header>
             <div class="banner">
             ${banner.print()}

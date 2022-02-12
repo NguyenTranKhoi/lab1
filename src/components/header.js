@@ -1,4 +1,7 @@
+import toastr from "toastr";
 import { data1 } from "../data";
+import "toastr/build/toastr.min.css";
+import { reRender } from "../ultils";
 
 const header = {
     print() {
@@ -20,21 +23,27 @@ const header = {
                 <li class="p-3 text-base text-white"><a href="/signup" class="hover:underline">Đăng ký</a></li>
             </ul>
             </nav>
+        <div class="header-bottom__search p-3">
+          ${localStorage.getItem("user") ? `
             <ul class="flex">
                 <li><a  id="account-email" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white"></a></li>
+                <li><a  id="logout" class="block px-4 py-5 hover:bg-indigo-500 hover:text-white cursor-pointer">Logout</a></li>
             </ul>
-        <div class="header-bottom__search p-3">
-          <form action="">
-            <input type="text" class="w-48" required>
-            <button class="bg-slate-900 w-24 text-white border-solid border border-white">TÌM KIẾM</button>
-          </form>
+          ` : ""}
         </div>
         </div>
         `;
     },
     afterRender() {
         const user = JSON.parse(localStorage.getItem("user"));
+        const loguot = document.querySelector("#logout");
         document.querySelector("#account-email").innerHTML = user.email;
+        // logout
+        loguot.addEventListener("click", () => {
+            toastr.success("logout thành công");
+            localStorage.removeItem("user");
+            reRender(header, "#header");
+        });
     },
 };
 
